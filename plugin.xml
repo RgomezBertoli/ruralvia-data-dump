@@ -6,8 +6,24 @@
     </js-module>
 
     <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Data-Dump">
+                <param name="android-package" value="com.cajarural.cajarural.data.DataDump"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/DataDump.java"
+                 target-dir="src/com/cajarural/data/plugin"/>
     </platform>
 
     <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Data-Dump">
+                <param name="ios-package" value="nombre de tu archivo .m"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/tu archivo.h" />
+        <source-file src="src/ios/tu archivo.m" />
     </platform>    
 </plugin>
