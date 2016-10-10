@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="ruralvia-data-dump" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ruralvia-data-dump</name>
+    <js-module name="ruralvia-data-dump" src="www/ruralvia-data-dump.js">
+        <clobbers target="rvDataDump" />
+    </js-module>
+
+    <platform name="android">
+    </platform>
+
+    <platform name="ios">
+    </platform>    
+</plugin>
