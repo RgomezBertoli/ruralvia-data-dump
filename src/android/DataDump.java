@@ -3,6 +3,7 @@ package com.cajarural.data;
 import org.apache.cordova.*;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -41,9 +42,9 @@ public class DataDump extends CordovaPlugin {
         if(!firstTime){
             String active = pref.getString("jsonactive_user", "");
             String list = pref.getString("jsonlist_users", "");
-            
-            active = active.replaceAll("CCifrado", "CampoCifrado");
-            list = list.replaceAll("CCifrado", "CampoCifrado");
+
+            active = active.replaceAll("CCifrado", "campoCifrado");
+            list = list.replaceAll("CCifrado", "campoCifrado");
 
             obj = "{ "
                 + "\"resultado\": \"ok\", "
@@ -53,7 +54,7 @@ public class DataDump extends CordovaPlugin {
 
         } else {
             obj = "{ "
-                + "\"resultado\": \"ok\""
+                + "\"resultado\": \"error\""
                 + " }";
         }
 
