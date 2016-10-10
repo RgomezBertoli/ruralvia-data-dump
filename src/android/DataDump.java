@@ -43,15 +43,22 @@ public class DataDump extends CordovaPlugin {
             String active = pref.getString("jsonactive_user", "");
             String list = pref.getString("jsonlist_users", "");
 
-            active = active.replaceAll("CCifrado", "campoCifrado");
-            list = list.replaceAll("CCifrado", "campoCifrado");
+            if(!active.equals("")){
+                active = active.replaceAll("CCifrado", "campoCifrado");
+                list = list.replaceAll("CCifrado", "campoCifrado");
+                active = active.replaceAll("pushActivo:true", "pushActivo:false");
+                list = list.replaceAll("pushActivo:true", "pushActivo:false");
 
-            obj = "{ "
-                + "\"resultado\": \"ok\", "
-                + "\"active_user\": " + active + ", "
-                + "\"list_users\": " + list + ""
-                + " }";
-
+                obj = "{ "
+                    + "\"resultado\": \"ok\", "
+                    + "\"active_user\": " + active + ", "
+                    + "\"list_users\": " + list + ""
+                    + " }";
+            } else {
+                obj = "{ "
+                    + "\"resultado\": \"error\""
+                    + " }";
+            }
         } else {
             obj = "{ "
                 + "\"resultado\": \"error\""
