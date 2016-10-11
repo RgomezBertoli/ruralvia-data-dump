@@ -17,6 +17,13 @@
     </platform>
 
     <platform name="ios">
-        
+        <config-file target="config.xml" parent="/*">
+            <feature name="Data-Dump">
+                <param name="ios-package" value="DataDump"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/DataDump.h" />
+        <source-file src="src/ios/DataDump.m" />
     </platform>    
 </plugin>
