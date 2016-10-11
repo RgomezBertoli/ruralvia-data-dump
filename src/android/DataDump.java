@@ -8,6 +8,9 @@ import org.json.JSONArray;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class DataDump extends CordovaPlugin {
 
     public Context ctx;
@@ -46,8 +49,17 @@ public class DataDump extends CordovaPlugin {
             if(!active.equals("")){
                 active = active.replaceAll("CCifrado", "campoCifrado");
                 list = list.replaceAll("CCifrado", "campoCifrado");
-                active = active.replaceAll("pushActivo:true", "pushActivo:false");
-                list = list.replaceAll("pushActivo:true", "pushActivo:false");
+
+                Pattern pat = Pattern.compile("(true)");
+                Matcher matchActive = pat.matcher(active);
+                Matcher matchList = pat.matcher(list);
+
+                if(matchActive.find()){
+                    active = matchActive.replaceAll("false");
+                }
+                if(matchList.find()) {
+                    list = matchList.replaceAll("false");
+                }
 
                 obj = "{ "
                     + "\"resultado\": \"ok\", "
